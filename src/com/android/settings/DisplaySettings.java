@@ -238,7 +238,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mWakeUpWhenPluggedOrUnplugged.setOnPreferenceChangeListener(this);
         }
 
-        if (counter == 2) {
+        if (counter == 3) {
             prefSet.removePreference(mWakeUpOptions);
         }
 
