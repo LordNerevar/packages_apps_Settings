@@ -111,7 +111,6 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
             setStringSummary(KEY_SECURITY_PATCH, patch);
         } else {
             getPreferenceScreen().removePreference(findPreference(KEY_SECURITY_PATCH));
-
         }
         setValueSummary(KEY_BASEBAND_VERSION, "gsm.version.baseband");
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL + getMsvSuffix());
