@@ -24,6 +24,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.PowerManager;
+import android.os.UserHandle;
 import android.util.Log;
 
 import com.android.settings.R;
@@ -94,7 +95,7 @@ public final class BluetoothPermissionRequest extends BroadcastReceiver {
 
             if (powerManager.isScreenOn() &&
                 LocalBluetoothPreferences.shouldShowDialogInForeground(context, deviceAddress) ) {
-                context.startActivity(connectionAccessIntent);
+                context.startActivityAsUser(connectionAccessIntent, UserHandle.CURRENT);
             } else {
                 // Acquire wakelock so that LCD comes up since screen is off
                 PowerManager.WakeLock wakeLock = null;

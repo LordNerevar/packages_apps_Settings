@@ -26,6 +26,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.PowerManager;
+import android.os.UserHandle;
 import android.util.Log;
 
 public final class DockEventReceiver extends BroadcastReceiver {
@@ -131,7 +132,7 @@ public final class DockEventReceiver extends BroadcastReceiver {
 
             sStartingService.acquire();
 
-            if (context.startService(intent) == null) {
+            if (context.startServiceAsUser(intent, UserHandle.CURRENT) == null) {
                 Log.e(TAG, "Can't start DockService");
             }
         }

@@ -28,6 +28,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.text.TextUtils;
 import android.os.PowerManager;
+import android.os.UserHandle;
 
 /**
  * BluetoothPairingRequest is a receiver for any Bluetooth pairing request. It
@@ -71,7 +72,7 @@ public final class BluetoothPairingRequest extends BroadcastReceiver {
                     LocalBluetoothPreferences.shouldShowDialogInForeground(context, deviceAddress)) {
                 // Since the screen is on and the BT-related activity is in the foreground,
                 // just open the dialog
-                context.startActivity(pairingIntent);
+                context.startActivityAsUser(pairingIntent, UserHandle.CURRENT);
             } else {
                 // Put up a notification that leads to the dialog
                 Resources res = context.getResources();
